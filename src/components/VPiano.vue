@@ -2,20 +2,20 @@
     <div class="Piano">
         <div class="Piano__container m-auto flex flex-col">
             <div class="touches-blanches flex mt-3">
-                <button ref="button" class="touche-blanche" @click="onClick"></button>
-                <button ref="button" class="touche-blanche" @click="onClick"></button>
-                <button class="touche-blanche" @click="onClick"></button>
-                <button class="touche-blanche" @click="onClick"></button>
-                <button class="touche-blanche" @click="onClick"></button>
-                <button class="touche-blanche" @click="onClick"></button>
-                <button class="touche-blanche" @click="onClick"></button>
+                <button class="touche-blanche" @click="playAudio('/assets/sounds/C.mp3')"></button>
+                <button class="touche-blanche" @click="playAudio('/assets/sounds/D.mp3')"></button>
+                <button class="touche-blanche" @click="playAudio('/assets/sounds/E.mp3')"></button>
+                <button class="touche-blanche" @click="playAudio('/assets/sounds/F.mp3')"></button>
+                <button class="touche-blanche" @click="playAudio('/assets/sounds/G.mp3')"></button>
+                <button class="touche-blanche" @click="playAudio('/assets/sounds/A.mp3')"></button>
+                <button class="touche-blanche" @click="playAudio('/assets/sounds/B.mp3')"></button>
             </div>
             <div class="touches-noires flex">
-                <button class="touche-noire" @click="onClick"></button>
-                <button class="touche-noire" @click="onClick"></button>
-                <button class="touche-noire" @click="onClick"></button>
-                <button class="touche-noire" @click="onClick"></button>
-                <button class="touche-noire" @click="onClick"></button>
+                <button class="touche-noire" @click="playAudio('/assets/sounds/Cc.mp3')"></button>
+                <button class="touche-noire" @click="playAudio('/assets/sounds/Dd.mp3')"></button>
+                <button class="touche-noire" @click="playAudio('/assets/sounds/Ff.mp3')"></button>
+                <button class="touche-noire" @click="playAudio('/assets/sounds/Gg.mp3')"></button>
+                <button class="touche-noire" @click="playAudio('/assets/sounds/Aa.mp3')"></button>
             </div>
             
         </div>
@@ -34,11 +34,8 @@
 <script>
 export default {
     methods: {
-        onClick : function () {
-            const noteDo = document.createElement('noteDo')
-            noteDo.src = '@/public/asstes/sounds/A.mp3'
-
-            noteDo.play()
+        playAudio : function (url) {
+            new Audio(url).play() ;
         }
     }
 }
@@ -85,6 +82,9 @@ export default {
     background: #000000 ;
     border-radius: 0px 0px 5px 5px ;
     margin-left: 43px ;
+}
+.touche-noire:focus {
+    background: #E6016F ;
 }
 .touche-noire:nth-child(1) {
     margin-left: 56px ;
