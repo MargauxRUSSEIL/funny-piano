@@ -1,6 +1,6 @@
 <template>
   <div id="app" class="text-center m-auto pt-10 w-full h-full">
-    <h1 class="title m-auto pt-2">The emoji piano</h1>
+    <v-header></v-header>
     <v-piano></v-piano>
   </div>
 </template>
