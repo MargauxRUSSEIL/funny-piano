@@ -60,72 +60,84 @@ export default {
                 this.playAudio('/assets/sounds/C.mp3') ;
                 this.getGifs() ;
                 document.getElementsByClassName('noteC')[0].style.backgroundColor = "#FFD12D" ;
+                document.getElementsByClassName('note')[0].style.color = "#FFFFFF" ;
                 break ;
             case 83:
                 // touche blanche ré
                 this.playAudio('/assets/sounds/D.mp3') ;
                 this.getGifs() ;
                 document.getElementsByClassName('noteD')[0].style.backgroundColor = "#FFD12D" ;
+                document.getElementsByClassName('note')[1].style.color = "#FFFFFF" ;
                 break ;
             case 68:
                 // touche blanche mi
                 this.playAudio('/assets/sounds/E.mp3') ;
                 this.getGifs() ;
                 document.getElementsByClassName('noteE')[0].style.backgroundColor = "#FFD12D" ;
+                document.getElementsByClassName('note')[2].style.color = "#FFFFFF" ;
                 break ;
             case 70:
                 // touche blanche fa
                 this.playAudio('/assets/sounds/F.mp3') ;
                 this.getGifs() ;
                 document.getElementsByClassName('noteF')[0].style.backgroundColor = "#FFD12D" ;
+                document.getElementsByClassName('note')[3].style.color = "#FFFFFF" ;
                 break ;
             case 71:
                 // touche blanche sol
                 this.playAudio('/assets/sounds/G.mp3') ;
                 this.getGifs() ;
                 document.getElementsByClassName('noteG')[0].style.backgroundColor = "#FFD12D" ;
+                document.getElementsByClassName('note')[4].style.color = "#FFFFFF" ;
                 break ;
             case 72:
                 // touche blanche la
                 this.playAudio('/assets/sounds/A.mp3') ;
                 this.getGifs() ;
                 document.getElementsByClassName('noteA')[0].style.backgroundColor = "#FFD12D" ;
+                document.getElementsByClassName('note')[5].style.color = "#FFFFFF" ;
                 break ;
             case 74:
                 // touche blanche si
                 this.playAudio('/assets/sounds/B.mp3') ;
                 this.getGifs() ;
                 document.getElementsByClassName('noteB')[0].style.backgroundColor = "#FFD12D" ;
+                document.getElementsByClassName('note')[6].style.color = "#FFFFFF" ;
                 break ;
             case 90:
                 // touche noire do#
                 this.playAudio('/assets/sounds/C%23.mp3') ;
                 this.getGifs() ;
                 document.getElementsByClassName('noteCc')[0].style.backgroundColor = "#E6016F" ;
+                document.getElementsByClassName('note')[0].style.color = "#FFFFFF" ;
                 break ;
             case 69:
                 // touche noire ré#
                 this.playAudio('/assets/sounds/D%23.mp3') ;
                 this.getGifs() ;
                 document.getElementsByClassName('noteDd')[0].style.backgroundColor = "#E6016F" ;
+                document.getElementsByClassName('note')[1].style.color = "#FFFFFF" ;
                 break ;
             case 84:
                 // touche noire fa#
                 this.playAudio('/assets/sounds/F%23.mp3') ;
                 this.getGifs() ;
                 document.getElementsByClassName('noteFf')[0].style.backgroundColor = "#E6016F" ;
+                document.getElementsByClassName('note')[3].style.color = "#FFFFFF" ;
                 break ;
             case 89:
                 // touche noire sol#
                 this.playAudio('/assets/sounds/G%23.mp3') ;
                 this.getGifs() ;
                 document.getElementsByClassName('noteGg')[0].style.backgroundColor = "#E6016F" ;
+                document.getElementsByClassName('note')[4].style.color = "#FFFFFF" ;
                 break ;
-            case 86:
+            case 85:
                 // touche noire la#
                 this.playAudio('/assets/sounds/A%23.mp3') ;
                 this.getGifs() ;
                 document.getElementsByClassName('noteAa')[0].style.backgroundColor = "#E6016F" ;
+                document.getElementsByClassName('note')[5].style.color = "#FFFFFF" ;
                 break ;
             }
 
@@ -134,11 +146,14 @@ export default {
         onKeyUp(e) {
             console.log(e)
             this.isPress = false
-            for (let i = 0; i < 7; i++) {
+            for (let i = 0 ; i < 7 ; i++) {
                 document.getElementsByClassName('touche-blanche')[i].style.backgroundColor = "#FFFFFF" ;
             }
-            for (let j = 0; j < 5; j++) {
+            for (let j = 0 ; j < 5 ; j++) {
                 document.getElementsByClassName('touche-noire')[j].style.backgroundColor = "#000000" ;
+            }
+            for (let k = 0 ; k < 7 ; k++) {
+                document.getElementsByClassName('note')[k].style.color = "rgba(255, 255, 255, 0.4)" ;
             }
             
         },
@@ -162,6 +177,44 @@ export default {
             } else if (touche == 'noir') {
                 document.getElementsByClassName(note)[0].style.backgroundColor = "#E6016F" ;
             }
+            switch (note) {
+                case 'noteC':
+                    document.getElementsByClassName('note')[0].style.color = "#FFFFFF" ;
+                    break ;
+                case 'noteD':
+                    document.getElementsByClassName('note')[1].style.color = "#FFFFFF" ;
+                    break ;
+                case 'noteE':
+                    document.getElementsByClassName('note')[2].style.color = "#FFFFFF" ;
+                    break ;
+                case 'noteF':
+                    document.getElementsByClassName('note')[3].style.color = "#FFFFFF" ;
+                    break ;
+                case 'noteG':
+                    document.getElementsByClassName('note')[4].style.color = "#FFFFFF" ;
+                    break ;
+                case 'noteA':
+                    document.getElementsByClassName('note')[5].style.color = "#FFFFFF" ;
+                    break ;
+                case 'noteB':
+                    document.getElementsByClassName('note')[6].style.color = "#FFFFFF" ;
+                    break ;
+                case 'noteCc':
+                    document.getElementsByClassName('note')[0].style.color = "#FFFFFF" ;
+                    break ;
+                case 'noteDd':
+                    document.getElementsByClassName('note')[1].style.color = "#FFFFFF" ;
+                    break ;
+                case 'noteFf':
+                    document.getElementsByClassName('note')[3].style.color = "#FFFFFF" ;
+                    break ;
+                case 'noteGg':
+                    document.getElementsByClassName('note')[4].style.color = "#FFFFFF" ;
+                    break ;
+                case 'noteAa':
+                    document.getElementsByClassName('note')[5].style.color = "#FFFFFF" ;
+                    break ;
+            }
             
         },
         colorBackKey(note, touche) {
@@ -169,6 +222,9 @@ export default {
                 document.getElementsByClassName(note)[0].style.backgroundColor = "#FFFFFF" ;
             } else if (touche == 'noir') {
                 document.getElementsByClassName(note)[0].style.backgroundColor = "#000000" ;
+            }
+            for (let k = 0 ; k < 7 ; k++) {
+                document.getElementsByClassName('note')[k].style.color = "rgba(255, 255, 255, 0.4)" ;
             }
         }
     }
