@@ -6,24 +6,18 @@
 </template>
 
 <script>
+import VHeader from '@/components/VHeader'
 import VPiano from '@/components/VPiano'
 export default {
   name: 'App',
   components: {
+    VHeader,
     VPiano
   }
 }
 </script>
 
 <style lang="postcss" scoped>
-.title {
-  @apply bg-black text-white ; 
-  height: 60px ;
-  width: 332px ;
-  border-radius: 10px ;
-  font-size: 30px ;
-}
-
 #app {
   font-family: 'PT Mono', monospace ;
   background: linear-gradient(135deg, #FF9D6C 0%, #BB4E75 100%) ;

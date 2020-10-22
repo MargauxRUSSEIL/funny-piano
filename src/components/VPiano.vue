@@ -3,20 +3,20 @@
         <img id="Emoji" class="m-auto" src="" alt="">
         <div class="Piano__container m-auto flex flex-col">
             <div class="touches-blanches flex lg:mt-3 mt-2 ;">
-                <button class="touche-blanche" @click.prevent="playAudio('/assets/sounds/C.mp3')" @click="getGifs()"></button>
-                <button class="touche-blanche" @click.prevent="playAudio('/assets/sounds/D.mp3')" @click="getGifs()"></button>
-                <button class="touche-blanche" @click.prevent="playAudio('/assets/sounds/E.mp3')" @click="getGifs()"></button>
-                <button class="touche-blanche" @click.prevent="playAudio('/assets/sounds/F.mp3')" @click="getGifs()"></button>
-                <button class="touche-blanche" @click.prevent="playAudio('/assets/sounds/G.mp3')" @click="getGifs()"></button>
-                <button class="touche-blanche" @click.prevent="playAudio('/assets/sounds/A.mp3')" @click="getGifs()"></button>
-                <button class="touche-blanche" @click.prevent="playAudio('/assets/sounds/B.mp3')" @click="getGifs()"></button>
+                <button class="touche-blanche noteC" @click.prevent="playAudio('/assets/sounds/C.mp3')" @click="getGifs()"></button>
+                <button class="touche-blanche noteD" @click.prevent="playAudio('/assets/sounds/D.mp3')" @click="getGifs()"></button>
+                <button class="touche-blanche noteE" @click.prevent="playAudio('/assets/sounds/E.mp3')" @click="getGifs()"></button>
+                <button class="touche-blanche noteF" @click.prevent="playAudio('/assets/sounds/F.mp3')" @click="getGifs()"></button>
+                <button class="touche-blanche noteG" @click.prevent="playAudio('/assets/sounds/G.mp3')" @click="getGifs()"></button>
+                <button class="touche-blanche noteA" @click.prevent="playAudio('/assets/sounds/A.mp3')" @click="getGifs()"></button>
+                <button class="touche-blanche noteB" @click.prevent="playAudio('/assets/sounds/B.mp3')" @click="getGifs()"></button>
             </div>
             <div class="touches-noires flex">
-                <button class="touche-noire" @click.prevent="playAudio('/assets/sounds/C%23.mp3')" @click="getGifs()"></button>
-                <button class="touche-noire" @click.prevent="playAudio('/assets/sounds/D%23.mp3')" @click="getGifs()"></button>
-                <button class="touche-noire" @click.prevent="playAudio('/assets/sounds/F%23.mp3')" @click="getGifs()"></button>
-                <button class="touche-noire" @click.prevent="playAudio('/assets/sounds/G%23.mp3')" @click="getGifs()"></button>
-                <button class="touche-noire" @click.prevent="playAudio('/assets/sounds/A%23.mp3')" @click="getGifs()"></button>
+                <button class="touche-noire noteCc" @click.prevent="playAudio('/assets/sounds/C%23.mp3')" @click="getGifs()"></button>
+                <button class="touche-noire noteDd" @click.prevent="playAudio('/assets/sounds/D%23.mp3')" @click="getGifs()"></button>
+                <button class="touche-noire noteFf" @click.prevent="playAudio('/assets/sounds/F%23.mp3')" @click="getGifs()"></button>
+                <button class="touche-noire noteGg" @click.prevent="playAudio('/assets/sounds/G%23.mp3')" @click="getGifs()"></button>
+                <button class="touche-noire noteAa" @click.prevent="playAudio('/assets/sounds/A%23.mp3')" @click="getGifs()"></button>
             </div>
             
         </div>
