@@ -1,21 +1,22 @@
 <template>
     <div class="Piano">
+        <img id="Emoji" class="m-auto" src="" alt="">
         <div class="Piano__container m-auto flex flex-col">
             <div class="touches-blanches flex lg:mt-3 mt-2 ;">
-                <button class="touche-blanche" @click="playAudio('/assets/sounds/C.mp3')"></button>
-                <button class="touche-blanche" @click="playAudio('/assets/sounds/D.mp3')"></button>
-                <button class="touche-blanche" @click="playAudio('/assets/sounds/E.mp3')"></button>
-                <button class="touche-blanche" @click="playAudio('/assets/sounds/F.mp3')"></button>
-                <button class="touche-blanche" @click="playAudio('/assets/sounds/G.mp3')"></button>
-                <button class="touche-blanche" @click="playAudio('/assets/sounds/A.mp3')"></button>
-                <button class="touche-blanche" @click="playAudio('/assets/sounds/B.mp3')"></button>
+                <button class="touche-blanche" @click.prevent="playAudio('/assets/sounds/C.mp3')" @click="getGifs()"></button>
+                <button class="touche-blanche" @click.prevent="playAudio('/assets/sounds/D.mp3')" @click="getGifs()"></button>
+                <button class="touche-blanche" @click.prevent="playAudio('/assets/sounds/E.mp3')" @click="getGifs()"></button>
+                <button class="touche-blanche" @click.prevent="playAudio('/assets/sounds/F.mp3')" @click="getGifs()"></button>
+                <button class="touche-blanche" @click.prevent="playAudio('/assets/sounds/G.mp3')" @click="getGifs()"></button>
+                <button class="touche-blanche" @click.prevent="playAudio('/assets/sounds/A.mp3')" @click="getGifs()"></button>
+                <button class="touche-blanche" @click.prevent="playAudio('/assets/sounds/B.mp3')" @click="getGifs()"></button>
             </div>
             <div class="touches-noires flex">
-                <button class="touche-noire" @click="playAudio('/assets/sounds/C%23.mp3')"></button>
-                <button class="touche-noire" @click="playAudio('/assets/sounds/D%23.mp3')"></button>
-                <button class="touche-noire" @click="playAudio('/assets/sounds/F%23.mp3')"></button>
-                <button class="touche-noire" @click="playAudio('/assets/sounds/G%23.mp3')"></button>
-                <button class="touche-noire" @click="playAudio('/assets/sounds/A%23.mp3')"></button>
+                <button class="touche-noire" @click.prevent="playAudio('/assets/sounds/C%23.mp3')" @click="getGifs()"></button>
+                <button class="touche-noire" @click.prevent="playAudio('/assets/sounds/D%23.mp3')" @click="getGifs()"></button>
+                <button class="touche-noire" @click.prevent="playAudio('/assets/sounds/F%23.mp3')" @click="getGifs()"></button>
+                <button class="touche-noire" @click.prevent="playAudio('/assets/sounds/G%23.mp3')" @click="getGifs()"></button>
+                <button class="touche-noire" @click.prevent="playAudio('/assets/sounds/A%23.mp3')" @click="getGifs()"></button>
             </div>
             
         </div>
@@ -32,16 +33,38 @@
 </template>
 
 <script>
+import { GiphyFetch } from '@giphy/js-fetch-api'
+
 export default {
+    data() {
+        return {
+            gifs:[]
+        }
+    },
     methods: {
         playAudio : function (url) {
             new Audio(url).play() ;
+        },
+        async getGifs() {      
+            const gf = new GiphyFetch('hoc7Xw81iwUP2iewXhekupQznVmYDlHK')
+
+            const { data: gifs } =  await gf.emoji()
+            console.log(gifs)
+
+            const nbRandom = Math.floor(Math.random() * Math.floor(25)) ;
+            console.log(gifs[nbRandom].images['fixed_width'].webp) ;
+            const urlRandom = gifs[nbRandom].images['fixed_width'].webp ;
+            document.getElementById('Emoji').src=urlRandom ;
         }
     }
 }
 </script>
 
 <style lang="postcss" scoped>
+img {
+    height: 280px ;
+    width: auto ;
+}
 
 @media only screen and (max-width: 767px) {
     .Piano {
@@ -63,7 +86,13 @@ export default {
     .Piano__container {
         max-height: 190px ;
         max-width: 368px ;
-        margin-top: 180px ;
+        margin-top: 70px ;
+    }
+}
+
+@media only screen and (max-width: 767px) {
+    #Emoji {
+        margin-top: 100px ;
     }
 }
 

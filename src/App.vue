@@ -1,19 +1,16 @@
 <template>
   <div id="app" class="text-center m-auto pt-10 w-full h-full">
     <h1 class="title m-auto pt-2">The emoji piano</h1>
-    <v-emoji></v-emoji>
     <v-piano></v-piano>
   </div>
 </template>
 
 <script>
 import VPiano from '@/components/VPiano'
-import VEmoji from '@/components/VEmoji'
 export default {
   name: 'App',
   components: {
-    VPiano,
-    VEmoji
+    VPiano
   }
 }
 </script>
