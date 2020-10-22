@@ -41,7 +41,88 @@ export default {
             gifs:[]
         }
     },
+    mounted () {
+        this.isPress = false
+        this.addListeners()
+    },
     methods: {
+        addListeners() {
+            document.addEventListener('keydown', this.onKeyDown)
+            document.addEventListener('keyup', this.onKeyUp)
+        },
+        onKeyDown(e) {
+            console.log(e)
+            if (this.isPress) return
+
+            switch (e.keyCode) {
+            case 81:
+                // touche blanche do
+                this.playAudio('/assets/sounds/C.mp3') ;
+                this.getGifs() ;
+                break ;
+            case 83:
+                // touche blanche ré
+                this.playAudio('/assets/sounds/D.mp3') ;
+                this.getGifs() ;
+                break ;
+            case 68:
+                // touche blanche mi
+                this.playAudio('/assets/sounds/E.mp3') ;
+                this.getGifs() ;
+                break ;
+            case 70:
+                // touche blanche fa
+                this.playAudio('/assets/sounds/F.mp3') ;
+                this.getGifs() ;
+                break ;
+            case 71:
+                // touche blanche sol
+                this.playAudio('/assets/sounds/G.mp3') ;
+                this.getGifs() ;
+                break ;
+            case 72:
+                // touche blanche la
+                this.playAudio('/assets/sounds/A.mp3') ;
+                this.getGifs() ;
+                break ;
+            case 74:
+                // touche blanche si
+                this.playAudio('/assets/sounds/B.mp3') ;
+                this.getGifs() ;
+                break ;
+            case 90:
+                // touche noire do#
+                this.playAudio('/assets/sounds/C%23.mp3') ;
+                this.getGifs() ;
+                break ;
+            case 69:
+                // touche noire ré#
+                this.playAudio('/assets/sounds/D%23.mp3') ;
+                this.getGifs() ;
+                break ;
+            case 84:
+                // touche noire fa#
+                this.playAudio('/assets/sounds/F%23.mp3') ;
+                this.getGifs() ;
+                break ;
+            case 89:
+                // touche noire sol#
+                this.playAudio('/assets/sounds/G%23.mp3') ;
+                this.getGifs() ;
+                break ;
+            case 86:
+                // touche noire la#
+                this.playAudio('/assets/sounds/A%23.mp3') ;
+                this.getGifs() ;
+                break ;
+            }
+
+            this.isPress = true
+        },
+        onKeyUp(e) {
+            console.log(e)
+            this.isPress = false
+        },
         playAudio : function (url) {
             new Audio(url).play() ;
         },
