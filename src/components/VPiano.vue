@@ -3,20 +3,20 @@
         <img id="Emoji" class="m-auto" src="" alt="">
         <div class="Piano__container m-auto flex flex-col">
             <div class="touches-blanches flex lg:mt-3 mt-2 ;">
-                <button class="touche-blanche noteC" @click.prevent="playAudio('/assets/sounds/C.mp3')" @click="getGifs()"></button>
-                <button class="touche-blanche noteD" @click.prevent="playAudio('/assets/sounds/D.mp3')" @click="getGifs()"></button>
-                <button class="touche-blanche noteE" @click.prevent="playAudio('/assets/sounds/E.mp3')" @click="getGifs()"></button>
-                <button class="touche-blanche noteF" @click.prevent="playAudio('/assets/sounds/F.mp3')" @click="getGifs()"></button>
-                <button class="touche-blanche noteG" @click.prevent="playAudio('/assets/sounds/G.mp3')" @click="getGifs()"></button>
-                <button class="touche-blanche noteA" @click.prevent="playAudio('/assets/sounds/A.mp3')" @click="getGifs()"></button>
-                <button class="touche-blanche noteB" @click.prevent="playAudio('/assets/sounds/B.mp3')" @click="getGifs()"></button>
+                <button class="touche-blanche noteC" @click.prevent="playAudio('/assets/sounds/C.mp3')" @click="getGifs()" @click.exact="colorKey('noteC', 'blanc')" @mouseout="colorBackKey('noteC', 'blanc')"></button>
+                <button class="touche-blanche noteD" @click.prevent="playAudio('/assets/sounds/D.mp3')" @click="getGifs()" @click.exact="colorKey('noteD', 'blanc')" @mouseout="colorBackKey('noteD', 'blanc')"></button>
+                <button class="touche-blanche noteE" @click.prevent="playAudio('/assets/sounds/E.mp3')" @click="getGifs()" @click.exact="colorKey('noteE', 'blanc')" @mouseout="colorBackKey('noteE', 'blanc')"></button>
+                <button class="touche-blanche noteF" @click.prevent="playAudio('/assets/sounds/F.mp3')" @click="getGifs()" @click.exact="colorKey('noteF', 'blanc')" @mouseout="colorBackKey('noteF', 'blanc')"></button>
+                <button class="touche-blanche noteG" @click.prevent="playAudio('/assets/sounds/G.mp3')" @click="getGifs()" @click.exact="colorKey('noteG', 'blanc')" @mouseout="colorBackKey('noteG', 'blanc')"></button>
+                <button class="touche-blanche noteA" @click.prevent="playAudio('/assets/sounds/A.mp3')" @click="getGifs()" @click.exact="colorKey('noteA', 'blanc')" @mouseout="colorBackKey('noteA', 'blanc')"></button>
+                <button class="touche-blanche noteB" @click.prevent="playAudio('/assets/sounds/B.mp3')" @click="getGifs()" @click.exact="colorKey('noteB', 'blanc')" @mouseout="colorBackKey('noteB', 'blanc')"></button>
             </div>
             <div class="touches-noires flex">
-                <button class="touche-noire noteCc" @click.prevent="playAudio('/assets/sounds/C%23.mp3')" @click="getGifs()"></button>
-                <button class="touche-noire noteDd" @click.prevent="playAudio('/assets/sounds/D%23.mp3')" @click="getGifs()"></button>
-                <button class="touche-noire noteFf" @click.prevent="playAudio('/assets/sounds/F%23.mp3')" @click="getGifs()"></button>
-                <button class="touche-noire noteGg" @click.prevent="playAudio('/assets/sounds/G%23.mp3')" @click="getGifs()"></button>
-                <button class="touche-noire noteAa" @click.prevent="playAudio('/assets/sounds/A%23.mp3')" @click="getGifs()"></button>
+                <button class="touche-noire noteCc" @click.prevent="playAudio('/assets/sounds/C%23.mp3')" @click="getGifs()" @click.exact="colorKey('noteCc', 'noir')" @mouseout="colorBackKey('noteCc', 'noir')"></button>
+                <button class="touche-noire noteDd" @click.prevent="playAudio('/assets/sounds/D%23.mp3')" @click="getGifs()" @click.exact="colorKey('noteDd', 'noir')" @mouseout="colorBackKey('noteDd', 'noir')"></button>
+                <button class="touche-noire noteFf" @click.prevent="playAudio('/assets/sounds/F%23.mp3')" @click="getGifs()" @click.exact="colorKey('noteFf', 'noir')" @mouseout="colorBackKey('noteFf', 'noir')"></button>
+                <button class="touche-noire noteGg" @click.prevent="playAudio('/assets/sounds/G%23.mp3')" @click="getGifs()" @click.exact="colorKey('noteGg', 'noir')" @mouseout="colorBackKey('noteGg', 'noir')"></button>
+                <button class="touche-noire noteAa" @click.prevent="playAudio('/assets/sounds/A%23.mp3')" @click="getGifs()" @click.exact="colorKey('noteAa', 'noir')" @mouseout="colorBackKey('noteAa', 'noir')"></button>
             </div>
             
         </div>
@@ -155,6 +155,21 @@ export default {
             console.log(gifs[nbRandom].images['fixed_width'].webp) ;
             const urlRandom = gifs[nbRandom].images['fixed_width'].webp ;
             document.getElementById('Emoji').src=urlRandom ;
+        },
+        colorKey (note, touche) {
+            if (touche == 'blanc') {
+                document.getElementsByClassName(note)[0].style.backgroundColor = "#FFD12D" ;
+            } else if (touche == 'noir') {
+                document.getElementsByClassName(note)[0].style.backgroundColor = "#E6016F" ;
+            }
+            
+        },
+        colorBackKey(note, touche) {
+            if (touche == 'blanc') {
+                document.getElementsByClassName(note)[0].style.backgroundColor = "#FFFFFF" ;
+            } else if (touche == 'noir') {
+                document.getElementsByClassName(note)[0].style.backgroundColor = "#000000" ;
+            }
         }
     }
 }
@@ -238,10 +253,6 @@ img {
     }
 }
 
-.touche-blanche:focus {
-    background: #FFD12D ;
-}
-
 .touches-noires {
     width: 507px ;
     margin-top: -252px ;
@@ -269,10 +280,6 @@ img {
         width: 21px ;
         margin-left: 30px ;
     }
-}
-
-.touche-noire:focus {
-    background: #E6016F ;
 }
 
 .touche-noire:nth-child(1) {
