@@ -1,4 +1,4 @@
-# The emoji piano
+# The emoji piano par Margaux RUSSEIL (LPDW)
 
 Les consignes sont dans le wiki.
 
